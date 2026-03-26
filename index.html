@@ -9,21 +9,20 @@
     <style>
         :root {
             --bank-blue: #1e3a8a;
-            --accent-light: #eff6ff;
-            --text-main: #1e293b;
+            --accent-light: #f8fafc;
         }
 
         body {
             font-family: 'Noto Sans Devanagari', sans-serif;
             background-color: #ffffff;
-            color: var(--text-main);
+            color: #1e293b;
             scroll-behavior: smooth;
         }
 
         .heading-serif { font-family: 'Lora', serif; }
         .accent-font { font-family: 'Montserrat', sans-serif; }
 
-        /* Animation: Entrance Fade */
+        /* Animation for Page Load */
         @keyframes revealUp {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -34,176 +33,97 @@
             opacity: 0;
         }
 
-        /* Unique Background: Soft Mesh Gradient */
+        /* Hero Background Mesh */
         .hero-bg {
-            background: radial-gradient(at 0% 0%, hsla(217,100%,97%,1) 0, transparent 50%), 
-                        radial-gradient(at 50% 0%, hsla(210,100%,98%,1) 0, transparent 50%);
+            background: radial-gradient(at 0% 0%, #f1f5f9 0, transparent 50%), 
+                        radial-gradient(at 100% 0%, #eff6ff 0, transparent 50%);
         }
 
-        /* Custom Borders & Shadows */
-        .sharp-card {
-            border-left: 4px solid var(--bank-blue);
-            box-shadow: 0 10px 30px -10px rgba(30, 58, 138, 0.1);
-            transition: all 0.3s ease;
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
         }
 
-        .sharp-card:hover {
-            transform: translateX(5px);
-            background-color: var(--accent-light);
-        }
-
-        .btn-prime {
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
             background-color: var(--bank-blue);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            letter-spacing: 0.05em;
+            transition: width 0.3s ease;
         }
 
-        .btn-prime:hover {
-            letter-spacing: 0.15em;
-            background-color: #172554;
+        .nav-link:hover::after {
+            width: 100%;
         }
     </style>
 </head>
 <body class="hero-bg">
 
-    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-blue-100 p-4">
-        <div class="container mx-auto flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <img src="shikshak-bank-logo.png" alt="Logo" class="h-12 w-auto">
-                <div class="hidden lg:block">
-                    <h1 class="heading-serif text-xl text-blue-900 leading-tight">शिक्षक बँक <span class="italic font-normal">सातारा</span></h1>
-                    <p class="text-[10px] accent-font font-bold tracking-[0.2em] text-blue-500">ESTABLISHED 1924</p>
-                </div>
-            </div>
-            <div class="hidden md:flex items-center gap-8 accent-font text-[11px] font-bold uppercase tracking-widest">
-                <a href="#" class="hover:text-blue-700">बँकेविषयी</a>
-                <a href="#" class="hover:text-blue-700">कर्ज योजना</a>
-                <a href="#" class="hover:text-blue-700">शाखा</a>
-                <button class="btn-prime text-white px-6 py-2 rounded-full shadow-lg shadow-blue-200">Internet Banking</button>
-            </div>
+    <header class="bg-white shadow-sm border-b border-blue-50">
+        <div class="container mx-auto py-6 flex justify-center stagger-load" style="animation-delay: 0.1s;">
+            <img src="shikshak-bank-logo.png" alt="शिक्षक बँक लोगो" class="h-24 md:h-32 w-auto transition-transform hover:scale-105 duration-500">
         </div>
-    </nav>
 
-    <header class="container mx-auto px-6 py-16 lg:py-24 grid lg:grid-cols-2 gap-12 items-center">
-        <div class="stagger-load" style="animation-delay: 0.1s;">
-            <h2 class="heading-serif text-5xl lg:text-7xl text-blue-900 leading-[1.1]">शिक्षकांच्या विश्वासाचे <br><span class="text-blue-600 italic">शंभर वर्ष.</span></h2>
-            <p class="mt-8 text-slate-600 text-lg max-w-lg leading-relaxed">
-                सातारा जिल्ह्यातील प्राथमिक शिक्षकांच्या आर्थिक उन्नतीसाठी समर्पित, आधुनिक तंत्रज्ञान आणि पारंपारिक विश्वासाचे संगम.
-            </p>
-            <div class="mt-10 flex flex-wrap gap-4">
-                <a href="#" class="btn-prime text-white px-10 py-4 font-bold uppercase text-xs tracking-widest shadow-xl">ठेवी योजना</a>
-                <a href="#" class="border-2 border-blue-900 text-blue-900 px-10 py-4 font-bold uppercase text-xs tracking-widest hover:bg-blue-900 hover:text-white transition-all">Unclaimed Deposits</a>
+        <div class="bg-slate-50 border-t border-blue-100 py-4">
+            <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="text-center md:text-left stagger-load" style="animation-delay: 0.2s;">
+                    <h2 class="heading-serif text-2xl text-blue-900 font-bold">शिक्षक बँक सातारा</h2>
+                    <p class="accent-font text-[10px] font-extrabold tracking-[0.4em] text-blue-500 uppercase">Established 1924</p>
+                </div>
+
+                <nav class="flex items-center gap-8 accent-font text-[12px] font-bold uppercase tracking-widest text-slate-600 stagger-load" style="animation-delay: 0.3s;">
+                    <a href="#" class="nav-link hover:text-blue-900">बँकेविषयी</a>
+                    <a href="#" class="nav-link hover:text-blue-900">कर्ज योजना</a>
+                    <a href="#" class="nav-link hover:text-blue-900">शाखा</a>
+                    <button class="bg-blue-900 text-white px-6 py-2 rounded-full text-[10px] shadow-lg hover:bg-blue-800 transition-all">Digital Banking</button>
+                </nav>
             </div>
-        </div>
-        <div class="relative stagger-load" style="animation-delay: 0.3s;">
-            <div class="absolute -inset-10 bg-blue-100/50 rounded-full blur-3xl -z-10"></div>
-            <img src="gallaryimg1.jpg" alt="Bank Building" class="rounded-2xl shadow-2xl border-8 border-white object-cover w-full h-[400px]">
         </div>
     </header>
 
-    <section class="bg-blue-50/50 py-20 border-y border-blue-100">
-        <div class="container mx-auto px-6">
-            <div class="flex justify-between items-end mb-12">
-                <h3 class="heading-serif text-4xl text-blue-900">आमच्या कर्ज योजना</h3>
-                <button class="accent-font text-xs font-bold text-blue-600 border-b-2 border-blue-600 pb-1">VIEW ALL PLANS</button>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="group relative bg-white overflow-hidden stagger-load" style="animation-delay: 0.4s;">
-                    <img src="img_slider5_89.jpeg" class="w-full h-48 object-cover group-hover:scale-110 transition duration-700">
-                    <div class="p-6">
-                        <h4 class="font-bold text-blue-900">वाहन तारण कर्ज</h4>
-                        <p class="text-xs text-slate-500 mt-2 italic">तुमच्या स्वप्नातील गाडीसाठी...</p>
-                    </div>
-                </div>
-                <div class="group relative bg-white overflow-hidden stagger-load" style="animation-delay: 0.5s;">
-                    <img src="img_slider1_35.jpg" class="w-full h-48 object-cover group-hover:scale-110 transition duration-700">
-                    <div class="p-6">
-                        <h4 class="font-bold text-blue-900">आपत्ती निवारण कर्ज</h4>
-                        <p class="text-xs text-slate-500 mt-2 italic">संकट काळात खंबीर साथ.</p>
-                    </div>
-                </div>
-                <div class="group relative bg-white overflow-hidden stagger-load" style="animation-delay: 0.6s;">
-                    <img src="img_slider2_16.jpg" class="w-full h-48 object-cover group-hover:scale-110 transition duration-700">
-                    <div class="p-6">
-                        <h4 class="font-bold text-blue-900">अल्पमुदत कर्ज</h4>
-                        <p class="text-xs text-slate-500 mt-2 italic">त्वरित आणि सुलभ अर्थसाहाय्य.</p>
-                    </div>
-                </div>
-                <div class="group relative bg-white overflow-hidden stagger-load" style="animation-delay: 0.7s;">
-                    <img src="img_slider4_12.jpeg" class="w-full h-48 object-cover group-hover:scale-110 transition duration-700">
-                    <div class="p-6">
-                        <h4 class="font-bold text-blue-900">प्लॉट खरेदी कर्ज</h4>
-                        <p class="text-xs text-slate-500 mt-2 italic">स्वतःचे घर साकारण्यासाठी.</p>
-                    </div>
-                </div>
+    <main class="container mx-auto px-6 py-16 lg:py-24 grid lg:grid-cols-2 gap-16 items-center">
+        <div class="stagger-load" style="animation-delay: 0.4s;">
+            <h3 class="heading-serif text-5xl lg:text-7xl text-blue-950 leading-tight">शिक्षकांच्या विश्वासाचे <br><span class="text-blue-600 italic font-normal">शंभर समृद्ध वर्ष.</span></h3>
+            <p class="mt-8 text-slate-500 text-lg max-w-lg leading-relaxed">
+                साताऱ्याच्या शैक्षणिक वारशाचा एक अविभाज्य भाग. आम्ही केवळ बँक नाही, तर प्रत्येक शिक्षकाच्या स्वप्नपूर्तीचा मार्ग आहोत.
+            </p>
+            <div class="mt-10 flex gap-4">
+                <button class="bg-blue-900 text-white px-10 py-4 font-bold uppercase text-xs tracking-widest hover:shadow-2xl transition-all">ठेवी योजना</button>
+                <button class="border-2 border-blue-900 text-blue-900 px-10 py-4 font-bold uppercase text-xs tracking-widest hover:bg-blue-900 hover:text-white transition-all">तक्रार निवारण</button>
             </div>
         </div>
-    </section>
+        <div class="stagger-load" style="animation-delay: 0.5s;">
+            <img src="gallaryimg1.jpg" alt="Bank Main Office" class="rounded-3xl shadow-2xl border-[12px] border-white w-full h-[450px] object-cover">
+        </div>
+    </main>
 
-    <section class="container mx-auto px-6 py-24">
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-12 text-center stagger-load" style="animation-delay: 0.8s;">
-            <div class="p-8 border-b-4 border-blue-900 bg-white">
+    <section class="bg-white py-20">
+        <div class="container mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="p-10 bg-slate-50 border-t-4 border-blue-900 text-center transition-all hover:shadow-xl stagger-load" style="animation-delay: 0.6s;">
                 <span class="accent-font text-5xl font-black text-blue-900">13</span>
-                <p class="text-xs font-bold text-slate-400 mt-4 tracking-widest uppercase">शाखा संपूर्ण जिल्ह्यात</p>
+                <p class="text-[10px] font-bold text-slate-400 mt-4 tracking-widest uppercase">शाखा संपूर्ण जिल्ह्यात</p>
             </div>
-            <div class="p-8 border-b-4 border-blue-900 bg-white">
+            <div class="p-10 bg-slate-50 border-t-4 border-blue-900 text-center transition-all hover:shadow-xl stagger-load" style="animation-delay: 0.7s;">
                 <span class="accent-font text-5xl font-black text-blue-900">10144</span>
-                <p class="text-xs font-bold text-slate-400 mt-4 tracking-widest uppercase">विश्वासू सभासद</p>
+                <p class="text-[10px] font-bold text-slate-400 mt-4 tracking-widest uppercase">विश्वासू सभासद</p>
             </div>
-            <div class="p-8 border-b-4 border-blue-900 bg-white">
+            <div class="p-10 bg-slate-50 border-t-4 border-blue-900 text-center transition-all hover:shadow-xl stagger-load" style="animation-delay: 0.8s;">
                 <span class="accent-font text-5xl font-black text-blue-900">1.14L</span>
-                <p class="text-xs font-bold text-slate-400 mt-4 tracking-widest uppercase">एकूण व्यवसाय (Cr)</p>
+                <p class="text-[10px] font-bold text-slate-400 mt-4 tracking-widest uppercase">एकूण व्यवसाय (Cr)</p>
             </div>
-            <div class="p-8 border-b-4 border-blue-900 bg-white">
+            <div class="p-10 bg-slate-50 border-t-4 border-blue-900 text-center transition-all hover:shadow-xl stagger-load" style="animation-delay: 0.9s;">
                 <span class="accent-font text-5xl font-black text-blue-900">298L</span>
-                <p class="text-xs font-bold text-slate-400 mt-4 tracking-widest uppercase">निव्वळ नफा (Lakh)</p>
+                <p class="text-[10px] font-bold text-slate-400 mt-4 tracking-widest uppercase">निव्वळ नफा (Lakh)</p>
             </div>
         </div>
     </section>
 
-    <section class="bg-slate-50 py-24">
-        <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-20">
-            <div class="stagger-load" style="animation-delay: 0.9s;">
-                <h3 class="heading-serif text-4xl text-blue-900">आमचा पत्ता</h3>
-                <div class="mt-12 space-y-8 accent-font text-sm">
-                    <div class="sharp-card p-6 bg-white">
-                        <h5 class="font-black text-blue-900 mb-1">मुख्य कार्यालय</h5>
-                        <p>१२/बी, रविवार पेठ, सातारा, महाराष्ट्र ४१५००२</p>
-                    </div>
-                    <div class="sharp-card p-6 bg-white">
-                        <h5 class="font-black text-blue-900 mb-1">संपर्क क्रमांक</h5>
-                        <p>०२१६२-२३४०४६</p>
-                    </div>
-                    <div class="sharp-card p-6 bg-white">
-                        <h5 class="font-black text-blue-900 mb-1">ईमेल आयडी</h5>
-                        <p>pssbl@shikshakbanksatara.bank.in</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-white p-10 shadow-2xl rounded-xl stagger-load" style="animation-delay: 1s;">
-                <h3 class="heading-serif text-3xl text-blue-900 mb-8">Leave A Message</h3>
-                <form class="space-y-6">
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <input type="text" placeholder="NAME" class="w-full border-b-2 border-slate-100 p-3 outline-none focus:border-blue-900 transition accent-font text-xs">
-                        <input type="text" placeholder="MOBILE" class="w-full border-b-2 border-slate-100 p-3 outline-none focus:border-blue-900 transition accent-font text-xs">
-                    </div>
-                    <input type="email" placeholder="EMAIL ADDRESS" class="w-full border-b-2 border-slate-100 p-3 outline-none focus:border-blue-900 transition accent-font text-xs">
-                    <textarea placeholder="MESSAGE" rows="4" class="w-full border-b-2 border-slate-100 p-3 outline-none focus:border-blue-900 transition accent-font text-xs"></textarea>
-                    
-                    <div class="flex items-center gap-3 py-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-                        <input type="checkbox" class="h-4 w-4 accent-blue-900"> I am not a robot
-                    </div>
-                    
-                    <button class="btn-prime w-full text-white py-4 font-black uppercase text-xs shadow-xl shadow-blue-200">Send Message</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <footer class="py-12 border-t border-slate-100 text-center">
-        <p class="accent-font text-[10px] font-bold text-slate-400 tracking-[0.3em] uppercase">
-            © 2026 PRATHAMIK SHIKSHAK SAHAKARI BANK LTD. SATARA | DESIGN BY AMAN DIGITAL
+    <footer class="py-10 border-t border-slate-100 text-center">
+        <p class="accent-font text-[9px] font-bold text-slate-400 tracking-[0.5em] uppercase">
+            © 2026 PRATHAMIK SHIKSHAK SAHAKARI BANK LTD. SATARA | DESIGNED BY AMAN DIGITAL
         </p>
     </footer>
 
