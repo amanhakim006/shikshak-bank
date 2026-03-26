@@ -28,6 +28,205 @@
             line-height: 1.8; 
             color: #1e293b; 
         }
+
+        /* Statistics Section with Data Analytics Background & Overlay */
+        .stats-bg {
+            background-image: url('5f06b9b3924f2b05615d5f75605d3550.jpg'); /* One of your uploaded data images */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+        .stats-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-color: rgba(30, 58, 138, 0.9); /* Dark Blue Overlay from screenshot */
+        }
+
+        .footer-bg { background-color: var(--footer-dark); }
+
+        #popup-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            inset: 0;
+            background-color: rgba(0,0,0,0.9);
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(8px);
+        }
+        .modal-content {
+            position: relative;
+            max-width: 500px;
+            width: 95%;
+            animation: zoomIn 0.3s ease-out;
+        }
+        @keyframes zoomIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+        .slider-container { display: flex; transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
+        .slide { min-width: 100%; }
+    </style>
+</head>
+<body onload="showPopup()">
+
+    <div id="popup-modal" onclick="closePopup()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button onclick="closePopup()" class="absolute -top-12 right-0 text-white text-4xl font-light hover:text-red-500">✕</button>
+            <img src="adve_5.jpg" alt="Bank Ad" class="rounded-xl shadow-2xl border-4 border-white w-full">
+        </div>
+    </div>
+
+    <header class="w-full">
+        <div class="bg-blue-900 text-white py-2 px-6 text-[13px] font-bold">
+            <div class="container mx-auto flex justify-end gap-8 tracking-widest uppercase">
+                <span>📞 02162-234046</span>
+                <span class="opacity-30">|</span>
+                <span>✉️ pssbl@shikshakbanksatara.bank.in</span>
+            </div>
+        </div>
+        <nav class="bg-white border-b-2 border-blue-50 py-6 shadow-sm">
+            <div class="container mx-auto px-6 flex flex-col lg:flex-row justify-between items-center gap-6">
+                <div class="flex items-center gap-5">
+                    <img src="shikshak-bank-logo.png" alt="Logo" class="h-16 w-auto">
+                    <h1 class="shree-font text-2xl md:text-4xl text-blue-900">प्राथमिक शिक्षक सहकारी बँक लि., सातारा.</h1>
+                </div>
+                <div class="flex gap-10 font-black text-[15px] uppercase text-gray-700 tracking-wider">
+                    <a href="#" class="text-blue-700 border-b-4 border-blue-700 pb-1">मुख्य पान</a>
+                    <a href="#about" class="hover:text-blue-700 transition">बँकेविषयी</a>
+                    <a href="#loans" class="hover:text-blue-700 transition">कर्जे</a>
+                    <a href="#contact" class="hover:text-blue-700 transition">संपर्क</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="relative overflow-hidden w-full h-[350px] md:h-[550px]">
+        <div class="slider-container" id="slider">
+            <div class="slide"><img src="gallaryimg1.jpg" class="w-full h-full object-cover"></div>
+            <div class="slide"><img src="gallaryimg2.jpg" class="w-full h-full object-cover"></div>
+        </div>
+    </div>
+
+    <section id="about" class="container mx-auto px-6 py-24">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="shree-font text-5xl md:text-8xl text-blue-900 text-center mb-16 border-b-8 border-blue-50 pb-6">प्राथमिक शिक्षक सहकारी बँक</h2>
+            
+            <div class="dev-para text-justify space-y-10">
+                <p class="bg-blue-50 p-10 rounded-3xl border-l-[16px] border-blue-900 shadow-xl leading-[2.2]">
+                    सावकारी पाशातून प्राथमिक शिक्षकांची मुक्तता व्हावी या हेतूने <strong>२१ आक्टोबर १९२४</strong> रोजी <strong>"आपली करा आपणच सोडवणूक"</strong> या तत्वाने कै. कृ. भा. बाबर यांचे पुढाकाराने व १४ प्रवर्तकांसह मसूर ता. कराड येथे "सातारा जिल्हा लोकल बोर्ड प्राथमिक शिक्षक सोसा. लि., " या नावाने संस्थेची स्थापना केली यावेळी तीन मुख्य उद्देश ठरविणेत आले.
+                </p>
+                <div class="grid md:grid-cols-1 gap-4 font-black text-blue-800 text-xl pl-6">
+                    <p>• अडीअडचणीचे वेळी शिक्षकांना कर्ज रूपाने आर्थिक मदत करणे.</p>
+                    <p>• शिक्षकांना आर्थिक बचत करण्याची सवय लावणे.</p>
+                    <p>• परिस्थिती सुधारताच शिक्षकांच्या हिताच्या योजना आखून त्या अमलात आणणे.</p>
+                </div>
+                <p class="font-bold text-slate-600">यानंतर दि. १७ एप्रिल १९४८ रोजी संस्थेची विभागणी उत्तर व दक्षिण सातारा होवून जिल्ह्यातील कराड व पाटण तालुके वगळून २ तालुक्यांसाठी "सातारा जिल्हा लोकल बोर्ड उत्तरभाग प्राथमिक शिक्षकांची सह. बँक लि., सातारा" या नावाने कामकाजास सुरुवात झाली. सध्या संपूर्ण सातारा जिल्हा कार्यक्षेत्र करणेत बँक यशस्वी झाली आहे. सातारा जिल्ह्यामध्ये बँकेच्या १३ शाखा व हेड ऑफिस असे कार्यक्षेत्र आहे.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="loans" class="container mx-auto px-6 pb-24 grid grid-cols-2 lg:grid-cols-4 gap-8">
+        <img src="img_slider5_89.jpeg" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500 border-4 border-white">
+        <img src="img_slider1_35.jpg" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500 border-4 border-white">
+        <img src="img_slider2_16.jpg" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500 border-4 border-white">
+        <img src="img_slider4_12.jpeg" class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500 border-4 border-white">
+    </section>
+
+    <section class="stats-bg py-24 text-white text-center relative">
+        <div class="container mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-12 relative z-10">
+            <div><h3 class="shree-font text-7xl mb-2">13</h3><p class="text-2xl font-bold">शाखा +</p></div>
+            <div><h3 class="shree-font text-7xl mb-2">10144</h3><p class="text-2xl font-bold">सभासद +</p></div>
+            <div><h3 class="shree-font text-7xl mb-2">114053</h3><p class="text-sm font-bold opacity-70 uppercase">व्यवसाय (लाखात)</p></div>
+            <div><h3 class="shree-font text-7xl mb-2">298</h3><p class="text-sm font-bold opacity-70 uppercase">नफा (लाखात)</p></div>
+        </div>
+    </section>
+
+    <section id="contact" class="container mx-auto px-6 py-24 grid lg:grid-cols-2 gap-16">
+        <div class="rounded-3xl overflow-hidden shadow-2xl h-[550px] border-8 border-white">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3800.670693526685!2d73.99955777401567!3d17.689622794017772!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc23992b861757b%3A0xe039e039e039e039!2sPrathamik%20Shikshak%20Sahakari%20Bank!5e0!3m2!1sen!2sin!4v1711456234567!5m2!1sen!2sin" 
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <div class="bg-white p-12 rounded-[40px] shadow-2xl border-t-[12px] border-blue-900">
+            <h3 class="shree-font text-5xl text-blue-900 mb-10 italic">Leave A Message</h3>
+            <form class="space-y-8">
+                <input type="text" placeholder="नाव" class="w-full bg-slate-50 p-5 border-b-4 border-slate-100 outline-none font-bold text-lg focus:border-blue-900 transition">
+                <input type="text" placeholder="मोबाईल" class="w-full bg-slate-50 p-5 border-b-2 border-slate-100 outline-none font-bold text-lg focus:border-blue-900 transition">
+                <textarea placeholder="संदेश" rows="4" class="w-full bg-slate-50 p-5 border-b-4 border-slate-100 outline-none font-bold text-lg focus:border-blue-900 transition"></textarea>
+                <button class="w-full bg-blue-900 text-white py-6 font-black uppercase text-xl rounded-2xl shadow-2xl hover:bg-black transition-all tracking-widest">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer-bg text-white py-20">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-16 border-b border-white/10 pb-16">
+            <div class="flex flex-col items-center md:items-start">
+                <h2 class="shree-font text-4xl md:text-5xl text-blue-400 mb-6 uppercase tracking-tighter">प्राथमिक शिक्षक बँक</h2>
+                <p class="font-bold text-gray-400 leading-relaxed">शिक्षकांच्या प्रगतीसाठी समर्पित एक विश्वसनीय बँकिंग संस्था. शतकाहून अधिक काळाचा गौरवशाली वारसा.</p>
+            </div>
+            <div class="flex flex-col gap-5 font-black uppercase text-sm tracking-widest">
+                <h4 class="text-blue-500 text-xl shree-font mb-4">महत्वाचे दुवे</h4>
+                <a href="#" class="hover:text-blue-400 transition">मुख्य पान</a>
+                <a href="#about" class="hover:text-blue-400 transition">बँकेविषयी</a>
+                <a href="#loans" class="hover:text-blue-400 transition">कर्ज योजना</a>
+                <a href="#" class="hover:text-blue-400 transition italic">Customer Complaint Form</a>
+            </div>
+            <div class="font-bold">
+                <h4 class="text-blue-500 text-xl shree-font mb-8">संपर्क माहिती</h4>
+                <div class="space-y-4 text-gray-300">
+                    <p class="flex items-center gap-3">📍 १२/बी, रविवार पेठ, सातारा ४१५००२</p>
+                    <p class="flex items-center gap-3 text-2xl text-white">📞 ०२१६२-२३४०४६</p>
+                    <p class="text-sm opacity-60 uppercase">✉️ pssbl@shikshakbanksatara.bank.in</p>
+                </div>
+            </div>
+        </div>
+        <div class="pt-10 text-center text-gray-500 font-black text-[11px] tracking-[0.5em] uppercase px-4">
+            Copyright 2026 © Prathamik Shikshak Sahakari Bank LTD., Satara. All rights reserved.<br>
+            <span class="text-blue-600">Powered by - RUHA Innovations Pvt. Ltd. | Design by Aman Digital</span>
+        </div>
+    </footer>
+
+    <script>
+        function showPopup() { document.getElementById('popup-modal').style.display = 'flex'; }
+        function closePopup() { document.getElementById('popup-modal').style.display = 'none'; }
+        const slider = document.getElementById('slider');
+        let index = 0;
+        setInterval(() => {
+            index = (index + 1) % 2;
+            slider.style.transform = `translateX(-${index * 100}%)`;
+        }, 4500);
+    </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>प्राथमिक शिक्षक सहकारी बँक | सातारा</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Khand:wght@500;700&family=Noto+Sans+Devanagari:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bank-blue: #1e3a8a;
+            --footer-dark: #0f172a;
+        }
+        body {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+            background-color: #ffffff;
+            color: #1e293b;
+            scroll-behavior: smooth;
+        }
+        .shree-font { 
+            font-family: 'Khand', sans-serif;
+            font-weight: 700;
+            line-height: 1.1;
+        }
+        .dev-para { 
+            font-weight: 700; 
+            font-size: 1.2rem; 
+            line-height: 1.8; 
+            color: #1e293b; 
+        }
         .stats-bg { background: linear-gradient(135deg, #4c1d95 0%, #1e1b4b 100%); }
         .footer-bg { background-color: var(--footer-dark); }
 
